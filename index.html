@@ -1,0 +1,1689 @@
+
+<html><head>
+	<title>Selector Generator Web</title>
+	<meta name="description" content="JannisX11 Minecraft Entity Selector Generator.">
+	<style type="text/css">
+* {
+	margin:0;
+	padding:0;
+
+}
+a {
+	color: inherit;
+	text-decoration: none;
+}
+a:hover {
+	color: #cacacf;
+	text-decoration: none;
+	border-bottom: 1px solid #cccccf;
+}
+body {
+	background-color: #020408;
+	font-size: 18px;
+	color: #cccccf;
+	font-stretch: condensed;
+	font-family: segoe ui, arial, sans-serif;
+	font-weight: lighter;
+}
+h2 {
+	color: #cccccf;
+	font-size: 23pt;
+	font-stretch: condensed;
+	font-family: segoe ui, arial, sans-serif;
+	font-weight: lighter;
+	text-align: center;
+	margin-bottom: 10px;
+}
+h3 {
+	color: #cccccf;
+	font-size: 20pt;
+	font-stretch: condensed;
+	font-family: segoe ui, arial, sans-serif;
+	font-weight: lighter;
+}
+input[type=text] {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	width: 190px;
+	margin: 8px;
+	margin-left: 0;
+	padding: 6px;
+	margin-top: 2;
+	font-size: 14px;
+	font-weight: normal;
+	color: #ced5e1;
+	font-stretch: condensed;
+	font-family: segoe ui, arial, sans-serif;
+	border: 0;
+	background-color: #464b52;
+}
+input[type=text]:focus {
+    background-color: #6e747b;
+}
+input[type=radio] {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+  	appearance: none;
+  	border:2px solid #cccccf;
+  	height: 18px;
+  	width: 18px;
+  	border-radius: 49%;
+}
+input[type=radio]:checked {
+	background-color: #7a828e;
+}
+input[type=range] {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+  	background: transparent;
+	width: 190px;
+	height: 31;
+	margin: 11px;
+	margin-left: 0;
+	padding: 2;
+	margin-top: 2;
+	font-size: 16px;
+	color: #ced5e1;
+	font-stretch: condensed;
+	font-family: segoe ui, arial, sans-serif;
+	border: 0;
+	background-color: #464b52;
+}
+input[type=range]::-webkit-slider-runnable-track {
+	height: 31;
+	border:none;
+	background-color: #464b52;
+}
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	height: 27px;
+	width: 14px;
+	border:none;
+	background-color: #808893;
+	cursor: pointer;
+	margin-top: 2;
+}
+input[type=checkBox] {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	display: block;
+	height:24;
+	margin-right: 14px;
+	margin-left: 0;
+	width:12;
+	background-color: #808893;
+  	margin-bottom: -6;
+	transition: margin 90ms linear, background-color 90ms linear;
+	position: relative;
+    z-index: 3;
+    top: -23;
+    right: -32;
+}
+input[type=checkBox]:checked {
+	margin-right: 0;
+	margin-left: 14px;
+	background-color: #3b93ff;
+	transition: margin 90ms linear, background-color 90ms linear;
+}
+select {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	width: 190px;
+	margin: 8px;
+	margin-left: 0;
+	padding: 6px;
+	margin-top: 2;
+	font-size: 14px;
+	font-weight: normal;
+	color: #ced5e1;
+	font-stretch: condensed;
+	font-family: segoe ui, arial, sans-serif;
+	border: none;
+	background-color: #464b52;
+}
+button {
+	width: 134;
+	margin: 11px;
+	margin-top: 12px;
+	margin-left: 0;
+	padding: 6px 6px;
+	font-size: 18px;
+	font-weight: lighter;
+	color: #ced5e1;
+	font-stretch: condensed;
+	font-family: segoe ui, arial, sans-serif;
+	border: 0;
+	background-color: #5d6268;
+}
+button:hover {
+	color: #e0e6f1;
+	background-color: #808893;
+}
+textarea {
+	padding: 8px;
+	resize: none;
+	word-wrap: break-word;
+	width: 100%;
+	border: 4px solid #464b52;
+	background:#464b52;
+	font-size: 16px;
+	font-weight: normal;
+	color: #ced5e1;
+	font-stretch: condensed;
+	font-family: consolas, sans-serif;
+}
+label {
+	margin-top: -3px;
+}
+button.side_button {
+	height: 28px;
+	width: 24px;
+	padding: 3px;
+	margin: 0;
+	margin-bottom: -2px;
+	margin-right: 0;
+	margin-left: 0;
+	color: #cccccf;
+	font-size: 14px;
+	font-weight: bolder;
+	font-family: segoe ui, arial, sans-serif;
+	background-color: #444a50;
+	font-weight: bolder;
+	transition: color 70ms linear;
+	transition: background 70ms linear;
+	display: none;
+}
+.segment:hover button.side_button {
+	display: block;
+}
+.side_button:hover {
+	color: #e0e6f1 !important;
+    background-color: #6e747b !important;
+}
+
+
+/*--Main Elements--*/
+
+
+#frame {
+	width: 420px;
+	margin-top: 40;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #37393d;
+	padding: 20;
+	padding-top: 0;
+	padding-bottom: 0;
+	box-shadow: 0 0 34px #000000;
+}
+.bar {
+	width: 100%;
+	text-align: center;
+	padding: 6px;
+	padding-right: 0;
+	padding-left: 0;
+	background-color: #37393d;
+}
+#menu {
+	margin:0;
+	padding:0;
+}
+#menu button {
+	padding:6;
+	margin:0;
+	margin-left:-5;
+	transition: background-color 200ms linear;
+}
+#menu button:hover {
+	background-color: #5d6268;
+}
+#menu button.toggleOff {
+	background-color: transparent;
+	transition: background-color 200ms linear;
+}
+.segment {
+	width: 100%;
+	background-color: #37393d;
+	padding: 0;
+	padding-bottom: 2px;
+	padding-top: 6;
+	border-bottom: 2px solid #464b52;
+	display:block;
+	float:left;
+}
+.segment-blank {
+	padding: 0;
+	border: none;
+}
+.HiddenSeg {
+	display: none;
+}
+.panel {
+	display: inline-block;
+	float:right;
+	width:22;
+	height: 82;
+	margin-top: -8;
+}
+.columns {
+	-webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+	display: inline-block;
+	width: 100%;
+}
+.columns:not(.scoreMod) {
+	width: 92%;
+}
+#ScoreContainer {
+	display: inline-block;
+	width: 92%;
+}
+.spaceEqual {
+	display: flex;
+	justify-content:space-between;
+}
+#frame p {
+	padding: 0;
+}
+
+
+#logOutput {
+	display: inline-block;
+	position: absolute;
+	margin-top: 12px;
+	font-size: 20px;
+}
+.form-button {
+	width: 36;
+	height: 31;
+	padding: 2px;
+	border: 0;
+	margin:0;
+	display: inline-block;
+	float: right;
+	margin-top: 2;
+}
+#RotationSeg .form-button {
+	width: 92;
+	height: 28;
+	margin-top: -4;
+	font-size: 14;
+	font-weight: bold;
+	transition: background-color 120ms linear;
+}
+#RotationSeg .form-button:hover {
+	background-color: #6e747b;
+	transition: background-color 120ms linear;
+}
+.input-frame {
+	width: 190;
+	margin: 0;
+	padding: 0;
+}
+button#generate {
+	margin-right: 0;
+}
+#version {
+	display: inline-block;
+	float:right;
+	padding: 12;
+	padding-bottom: 0;
+	margin-bottom: 0;
+}
+#checkBoxBack {
+	display: inline-block;
+	height: 12;
+	width: 28;
+	background-color: #5d6268;
+    position: relative;
+    z-index: 2;
+}
+input.smaller {
+	width:148;
+	margin-bottom: 0;
+	margin-right: 0;
+}
+#scoreMenuButton {
+	display: inline;
+}
+#scoreClose {
+	display: none;
+	float: right;
+	padding-right: 12;
+	padding-left: 4;
+	position: absolute;
+	color: #ced5e1;
+	cursor: default;
+}
+#menu button:not(.toggleOff):hover #scoreClose {
+	display: inline;
+	margin-left: 24;
+}
+#scoreClose:hover {
+	color: #fff;
+}
+
+
+/*Overlays*/
+
+#help {
+	position: absolute;
+	top: 72;
+	right: 0;
+	width: 300;
+	background-color: #37393d;
+	padding: 20;
+	padding-bottom: 0;
+	box-shadow: 0 0 34px #000000;
+	display: none;
+	font-size: 13pt;
+}
+.helpsegment {
+	float: left;
+	width: 100%;
+	display: none;
+	text-align: justify;
+}
+.helpsegmentForce {
+	float: left;
+	width: 100%;
+	text-align: justify;
+}
+#presets {
+	width: 400px;
+	position: absolute;
+	margin-top: 200;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
+	top:0;
+	background-color: #37393d;
+	padding: 20;
+	padding-top: 6;
+	box-shadow: 0 0 34px #000000;
+	color: #111;
+	z-index: 5;
+	display: none;
+}
+#blackout {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 4;
+	background-color: #000000;
+	opacity: 0.7;
+	display: none;
+}
+#presetLoc {
+	margin: 14;
+	margin-left: 0;
+}
+
+
+
+
+/*--Circle Display--*/
+
+#sidebar_toggle {
+	width: 25;
+	padding: 2;
+	margin-left: 12;
+}
+#sidebar_toggle div {
+	height: 2px;
+	width: 90%;
+	background-color: #ccc;
+	margin: 5;
+	border-radius: 1;
+}
+#sidebar_toggle:hover div {
+	background-color: #eee;
+	width: 100%;
+	margin-left: 4;
+}
+#sidebar_toggle.shown div {
+	width: 100%;
+	margin-left: 4;
+}
+.circle {
+	height: 180;
+	width: 180; 
+	text-align: center;
+	border:2px solid #464b52;
+	border-radius: 50%;
+	background-color: #464b52;
+}
+#rotX .circle {
+	background: linear-gradient(90deg, #464b52 50%, #404449 50%);
+}
+.circle-overlay {
+	height: 180;
+	width: 180; 
+	text-align: center;
+	border-radius: 50%;
+	position: absolute;
+	margin-top: -182;
+	margin-left: 2;
+}
+.rotHalf {
+	width: 190;
+	height: 380;
+}
+.rotLabel {
+	height: 28;
+	display: block;
+	padding: 12;
+	color: #cccccf;
+	font-stretch: normal;
+	font-weight: bold;
+	z-index: 3;
+}
+.rotMark {
+	height: 64;
+	width: 4;
+	margin-top: -2;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #33a1ff;
+	z-index: 0;
+	border-radius: 2px;
+}
+.circle output {
+	font-size: 24;
+	display: none;
+}
+.rotMiddle {
+	width: 100%;
+	margin-top: 18;
+	z-index: 3;
+}
+.rotMarkVert {
+	height: 4;
+	width: 12;
+}
+.rotMarkVert.left {
+	margin-left: -10px;
+}
+
+
+
+/*--Other stuff--*/
+
+
+#noJS {
+	font-size: 25;
+}
+#clearer {
+	clear: both;
+	height: 0;
+	width: 100%;
+	background-color: transparent;
+}
+#credit {
+	font-size: 20;
+	display: inline-flex;
+	right:0;
+	margin:0;
+	padding-right: 12;
+	padding-top: 4;
+	position:absolute;
+}
+
+	</style>
+	<script src="https://code.jquery.com/jquery-latest.js"></script>
+	<script language="javascript" type="text/javascript">
+var logList = [];
+var logging = 0;
+var scoreIndex = 0;
+var hideYrot;
+var hideXrot;
+var blackout = $("#blackout");
+var scoreMods = [];
+var generating = false;
+deg2 = 0;
+
+
+$(document).ready(function() {
+	resize()
+	$("#noJS").hide(0);
+})
+$(window).resize(function() {
+	resize()
+})
+$(window).keypress(function() {
+	if (event.which == 13) {
+		generateX()
+	}
+})
+function resize() {
+	if ($(window).width() < 1140) {
+		$('#credit').css('visibility', 'hidden')
+	} else {
+		$('#credit').css('visibility', 'visible')
+	}
+}
+function logc(msg) {
+	logList.push(msg);
+	if (logging == 0) {
+		logShow();
+	}
+}
+function logShow() {
+	var log = $("#logOutput");
+	logging = 1;
+	log.hide();
+	log.text(logList[0]);
+	logList.splice(0,1);
+	log.show(300);
+	setTimeout(function() {
+		log.hide(300, function clearLog() {
+			log.text("")
+			if (logList.length > 0) {
+				logShow();
+			} else {logging = 0;}
+		});
+	}, 1200)
+}
+
+function radioCheck(i) {
+	var typeField = $("#Type")[0];
+	var typeC = $("#countInput")[0];
+	switch(i) {
+		case 1:
+			typeField.disabled = true;
+			typeField.value = "";
+			typeC.disabled = false;
+		break;
+		case 2:
+			typeField.disabled = false;
+			typeC.disabled = false;
+		break;
+		case 3:
+			typeField.disabled = true;
+			typeField.value = "";
+			typeC.disabled = true;
+			typeC.value = 0;
+			$("#countOutput").text("All")
+		break;
+		case 4:
+			typeField.disabled = false;
+			typeC.disabled = true;
+			typeC.value = 0;
+			$("#countOutput").text("All")
+		break;
+		case 5:
+			typeField.disabled = false;
+			typeC.disabled = false;
+		break;
+	}
+}
+function updateCount() {
+	var countValue = $("#countInput").val();
+	if (countValue == "0") {
+		$("#countOutput").text("All");
+		countToggleX(true);
+	} else {
+		$("#countOutput").text(countValue)
+	}
+}
+function updateMode() {
+	var modeValue = $("#modeInput").val();
+	switch (modeValue) {
+		case "-1":
+			$("#modeOutput").text("All");
+			gameMode = "All";
+			break;
+		case "0":
+			gameMode = "Survival";
+			break;
+		case "1":
+			gameMode = "Creative";
+			break;
+		case "2":
+			gameMode = "Adventure";
+			break;
+		case "3":
+			gameMode = "Spectator";
+			break;
+	}
+	$("#modeOutput").text(gameMode);
+}
+function modeToggleX(force) {
+	var out = $("#modeNegOutput").text();
+	if (out != "") {
+		out = "";
+	} else {
+		out = "!";
+	}
+	if (force == true) {out="";}
+	$("#modeNegOutput").text(out);
+}
+function countToggleX(force) {
+	if ($('#countInput').val() != "0") {
+		var out = $("#countNegOutput").text();
+		if (out != "") {
+			out = "";
+		} else {
+			out = "(farthest first)";
+		}
+		$("#countNegOutput").text(out);
+	}
+	if (force) {$("#countNegOutput").text("");}
+}
+function clearX() {
+	$("#countOutput").text("All");
+	$("#Output").val("");
+	$('form').each(function() { this.reset() });
+	rotReset();
+	modeToggleX(true);
+	updateMode();
+	updateCount();
+	logc("Cleared all fields");
+}
+function copyX() {
+	var boxtext = $("#Output").val();
+	if (boxtext != "") {
+		try {
+			$("#Output")[0].focus();
+	    	document.execCommand('SelectAll');
+			document.execCommand('copy');
+			logc("Copied to clipboard");
+		} catch(err) {
+			logc("Failed to copy");
+		}
+	} else {logc("Nothing to copy :(");}
+}
+function changeVersion() {
+	var switcher = $("#changeVersion");
+	if (switcher.is(':checked')) {
+		logc("Set version to 1.10 and older");
+		$("#Type").attr("list","110_entities")
+	} else {
+		logc("Set version to 1.11 and newer");
+		$("#Type").attr("list","111_entities")
+	}
+}
+function generateX(errors) {
+	if (generating) {
+		return false;
+	}
+	generating = true
+	var parts = [];
+	var errors = [];
+	var selector = "";
+	if ($('#radioA').is(':checked')) {
+		selector = "@a";
+	}
+	if ($('#radioE').is(':checked')) {
+		selector = "@e";
+	}
+	if ($('#radioP').is(':checked')) {
+		selector = "@p";
+	}
+	if ($('#radioS').is(':checked')) {
+		selector = "@s";
+	}
+	if ($('#radioR').is(':checked')) {
+		selector = "@r";
+	}
+
+	//Coords
+	if (($('#Corner1').val()) != "") {
+   		var switcher = $("#changeVersion");
+		var coords1 = $('#Corner1').val().split(/ |,/g, 3);
+		var coords2 = $('#Corner2').val().split(/ |,/g, 3);
+		if (($('#Corner1').val()) != "" && ($('#Corner2').val()) != "") {
+			var x1 = parseInt(coords1[0]);
+			var y1 = parseInt(coords1[1]);
+			var z1 = parseInt(coords1[2]);
+
+			var x2 = parseInt(coords2[0]);
+			var y2 = parseInt(coords2[1]);
+			var z2 = parseInt(coords2[2]);
+			var xD = x2 - x1;
+            var yD = y2 - y1;
+            var zD = z2 - z1;
+
+            if (xD <= -1)
+            {
+                x1 = x2;
+                xD = xD * -1;
+            }
+            if (yD <= -1)
+            {
+                y1 = y2;
+                yD = yD * -1;
+            }
+            if (zD <= -1)
+            {
+                z1 = z2;
+                zD = zD * -1;
+   			}
+			if (switcher.is(':checked') == false) {
+				parts.push("x="+x1);
+				parts.push("y="+y1);
+				parts.push("z="+z1);
+			} else {
+				parts.push(x1);
+				parts.push(y1);
+				parts.push(z1);
+			}
+			parts.push("dx="+xD);
+			parts.push("dy="+yD);
+			parts.push("dz="+zD);
+		} else {
+			if (switcher.is(':checked') == false) {
+				parts.push("x="+coords1[0]);
+				parts.push("y="+coords1[1]);
+				parts.push("z="+coords1[2]);
+			} else {
+				parts.push(coords1[0]);
+				parts.push(coords1[1]);
+				parts.push(coords1[2]);
+			}
+		}
+		if (parts.join("a").includes("undefined")) {
+			parts = [];
+			errors.push("Invalid Coordinates");
+		}
+		if (parts.join("a").includes("NaN")) {
+			parts = [];
+			errors.push("Invalid Coordinates");
+		}
+	}
+	//Radius
+		if (($('#Radius').val()) != "" ) {
+		try {
+			var r = "";
+			var rRange = $('#Radius').val().split(/ |-|,/g, 2);
+			if (rRange.length >= 2) {
+				if (rRange[0] == "*") {
+					r = "r=" + parseInt(rRange[1]);
+				} else {
+					if (rRange[1] == "*") {
+						r = "rm=" + parseInt(rRange[0]);
+					} else {
+						r = "rm=" + parseInt(rRange[0]) + ",r=" + parseInt(rRange[1]);
+					}
+				}
+			} else {
+				r = "r=" + parseInt(rRange[0]);
+			}
+			if (r.includes("NaN")) {
+				errors.push("Invalid Radius");
+			} else {
+				parts.push(r);
+			}
+		} catch(err) {
+			errors.push("Invalid Radius");
+		}
+	}
+
+
+	//Type
+	if (($('#Type').val()) != "" ) {
+		
+			var names = getEntityNames();
+			if ($('#Type').val().includes(" ")) {
+				errors.push("Type can't contain spaces");
+			} else {
+				if (names.includes($('#Type').val().replace('!', ''))) {
+					parts.push("type="+$('#Type').val());
+				} else {
+					errors.push("Invalid entity type (Switch version)");
+					parts.push("type="+$('#Type').val());
+				}
+			}
+	}
+
+	//Name
+	if (($('#Name').val()) != "" ) {
+		try {
+			if ($('#Name').val().includes(" ")) {
+				errors.push("Name can't contain spaces");
+			} else {
+				parts.push("name="+$('#Name').val());
+			}
+		} catch(err) {
+			errors.push("Invalid name");
+		}
+	}
+
+	//Tag
+	if (($('#Tag').val()) != "" ) {
+		try {
+			if ($('#Tag').val().includes(" ")) {
+				errors.push("Tags can't contain spaces");
+			} else {
+				parts.push("tag="+$('#Tag').val());
+			}
+		} catch(err) {
+			errors.push("Invalid tag");
+		}
+	}
+
+	//Team
+	if (($('#Team').val()) != "" ) {
+		try {
+			if ($('#Team').val().includes(" ")) {
+				errors.push("Team can't contain spaces");
+			} else {
+				parts.push("team="+$('#Team').val());
+			}
+		} catch(err) {
+			errors.push("Invalid team");
+		}
+	}
+
+	//Count
+	if (($('#countInput').val()) != "" ) {
+		try {
+			if (($('#countInput').val()) != "0" ) {
+				if ($('#countNegOutput').text() != "") {
+					parts.push("c=-"+$('#countInput').val());
+				} else {
+					parts.push("c="+$('#countInput').val());
+				}
+			}
+		} catch(err) {
+			errors.push("Error (count)");
+		}
+	}
+
+
+	//Gamemode
+	if (($('#modeInput').val()) != "-1" ) {
+		parts.push("m=" + $("#modeNegOutput").text() + $('#modeInput').val());
+	}
+
+
+
+	//Level
+	if (($('#XP').val()) != "" ) {
+		try {
+			var xp = "";
+			var xpRange = $('#XP').val().split(/ |-|,/g, 2);
+			if (xpRange.length >= 2) {
+				if (xpRange[0] == "*") {
+					xp = "l=" + parseInt(xpRange[1]);
+				} else {
+					if (xpRange[1] == "*") {
+						xp = "lm=" + parseInt(xpRange[0]);
+					} else {
+						xp = "lm=" + parseInt(xpRange[0]) + ",l=" + parseInt(xpRange[1]);
+					}
+				}
+			} else {
+				xp = "lm=" + parseInt(xpRange[0]);
+			}
+			if (xp.includes("NaN")) {
+				errors.push("Invalid Levels");
+			} else {
+				parts.push(xp);
+			}
+		} catch(err) {
+			errors.push("Invalid Level");
+		}
+	}
+
+
+	//Rotation
+	var rot;
+	if ($('#ryS').val() != "-181") {
+		rot = $('#ryS').val();
+		parts.push("ry=" + rot);
+	}
+	if ($('#rymS').val() != "-181") {
+		rot = $('#rymS').val();
+		parts.push("rym=" + rot);
+	}
+	if ($('#rxS').val() != "-91") {
+		rot = $('#rxS').val();
+		parts.push("rx=" + rot);
+	}
+	if ($('#rxmS').val() != "-91") {
+		rot = $('#rxmS').val();
+		parts.push("rxm=" + rot);
+	}
+
+
+
+
+
+
+	//Scores
+	if (scoreIndex > 0) {
+		var i = 0;
+		var objective = "";
+		while (i < scoreIndex) {
+			var score = "";
+			objective = "";
+			if ($('#sm' + i).length == 1)
+				objective = $('#sm' + i + ' input#Objective').val();
+				try {
+					scoreRange = $('#sm' + i + ' input#ScoreVal').val().split(/ |,/g, 2);
+				} catch(err) { scoreRange = []}
+				if (objective != "") {
+					if (scoreRange.length == 2) {
+						if (scoreRange[0] == "*") {
+							score = "score_" + objective + "=" +parseInt(scoreRange[1]);
+						} else {
+							if (scoreRange[1] == "*") {
+								score = "score_" + objective + "_min=" +parseInt(scoreRange[0]);
+							} else { //Both
+								score = "score_" + objective + "_min=" +parseInt(scoreRange[0]) + ",score_" + objective + "=" +parseInt(scoreRange[1]);
+							}
+						}
+					} else {
+						if ((scoreRange[0] != undefined) && (scoreRange[0] !="")) {
+							score = "score_" + objective + "_min=" +parseInt(scoreRange[0]);
+						} else {
+							score = "score_" + objective + "_min=1";
+						}
+					}
+					if (score.includes("NaN")) {
+						errors.push("Invalid Score / Objective: " + scoreRange[0]);
+					} else {
+						parts.push(score);
+					}
+				}
+				i++;
+			}
+		}
+		
+
+
+	//Combine
+	$("#Output").val("")
+	if (errors.length != 0 && errors == true) {
+		var i = 0;
+		while (errors.length > i) {
+			logc(errors[i]);
+			i++;
+		}
+	} else {
+		if (parts.length > 0) {
+			selector += "["+parts.join(",") + "]";
+		}
+		$("#Output").val(selector);
+		logc("Selector generated");
+		try {
+			parent.saveSelGen(selector)
+		} catch (err) {}
+	}
+	parts = [];
+	setTimeout(function() {
+		generating = false;
+	},100)
+}
+function getEntityNames() {
+	var names = [];
+	var i = 0;
+	if ($('#changeVersion').is(':checked')) {
+		ListItems = $("datalist#110_entities option");
+	} else {
+		ListItems = $("datalist#111_entities option");
+	}
+	while (i < ListItems.length) {
+		names.push(ListItems.eq(i).val());
+		i++;
+	}
+	return names;
+}
+function closeSeg(name) {
+	var seg = getSeg(name);
+	seg.hide(500);
+}
+function clearSeg(seg) {
+	seg.val("");
+}
+function getBtn(name) {
+	var seg = $("button#" + name);
+	return seg;
+}
+function getSeg(name) {
+	var seg = $("form#" + name + "Seg");
+	return seg;
+}
+function getHelpSeg(name) {
+	var seg = $("#help #" + name + "Help");
+	return seg;
+}
+function toggleSeg(name) {
+	var btn = getBtn(name);
+	var seg = getSeg(name);
+	if (btn.attr("class") != "toggleOff") {
+		btn.addClass("toggleOff"); 		//DEACTIVATE
+		seg.hide(200);
+		seg.trigger("reset");
+		if (name == "Score") {closeScore();}
+		if (name == "Rotation") {rotReset();}//aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	} else {
+		btn.removeClass("toggleOff"); 	//ACTIVATE
+		seg.show(200);
+	}
+	updateMode();
+	updateCount();
+}
+function addScoreMod() {
+	var seg = $("#ScoreSeg");
+	var segC = $("#ScoreContainer");
+	var btn = $("button#Score");
+	if (btn.attr("class") == "toggleOff") { //ACTIVATE
+		btn.removeClass("toggleOff");
+		segC.html("");
+		scoreIndex = 0;
+		seg.show(200);
+	}
+	var scoreModPre = '<div style=\"display:none;\" class=\"columns scoreMod\" id=\"sm' + scoreIndex + '\"><p>Score Name<br></p><input type=\"text\" id=\"Objective\" list=\"ObjectivePresets\"></input><p>Score Range<br></p><div class=\"input-frame\"><input type=\"text\" class=\"smaller\" id=\"ScoreVal\"></input><button type=\"button\" onclick=\"closeScoreMod(' + scoreIndex + ')\" class=\"form-button\">X</button></div></div></div>';
+	if (scoreIndex < 15) {
+		segC.append(scoreModPre);
+		$('#sm'+scoreIndex).show(180);
+		scoreIndex++;
+	} else {
+		logc("You can't add more than 16 scores");
+	}
+}
+function closeScoreMod(index) {
+	var mod = $("#sm" + index);
+	var seg = $("#ScoreContainer");
+	if (index == (scoreIndex-1)) {
+		scoreIndex = scoreIndex-1;
+	}
+	mod.hide(200);
+	setTimeout(function() {
+		mod.remove();
+		if ($('#ScoreContainer').html() == "") {
+			closeScore();
+		}
+	}, 200);
+}
+function closeScore() {
+	$("button#Score").addClass("toggleOff");
+	$("#ScoreSeg").hide(200);
+	scoreIndex = -1;
+}
+
+//-----------------------------
+//---Rotation------------------
+//-----------------------------
+
+function rotateY(obj, deg) {
+	var out = $('#wheelY');
+	out.show();
+	clearTimeout(hideYrot);
+	if (deg == -181) {
+		obj.css({'transform': 'rotate(0deg)'});
+		out.text("None");
+	} else {
+		deg2 = parseInt(deg) + 180;
+		obj.css({'transform': 'rotate(' + deg2 + 'deg)'});
+		out.text(deg);
+	}
+	hideYrot = setTimeout(function() {
+		out.hide(300);
+	}, 600)
+}
+function rotateYStep(obj, event) {
+	var value = obj.val();
+	if (event) {
+		value++;
+	} else {
+		value--;
+	}
+	obj.val(value);
+}
+
+function rotateX(obj, deg) {
+	var out = $('#wheelX');
+	out.show();
+	clearTimeout(hideXrot);
+	if (deg == -91) {
+		obj.css({'transform': 'rotate(0deg)'});
+		out.text("None");
+	} else {
+		obj.css({'transform': 'rotate(' + (deg*-1-90) + 'deg)'});
+		out.text(deg);
+	}
+	hideXrot = setTimeout(function() {
+		out.hide(300);
+	}, 600)
+}
+function rotateXStep(obj, event) {
+	var value = obj.val();
+	if (event) {
+		value++;
+	} else {
+		value--;
+	}
+	obj.val(value);
+}
+function rotReset() {
+	$('.circle-overlay').css({'transform': 'rotate(0deg)'});
+}
+
+
+function toggleSide() {
+	btn = $("#sidebar_toggle");
+	if (btn.attr("class") == "shown") {
+		closeHelp();
+	} else {
+		showHelp('Overall')
+	}
+}
+function showHelp(seg) {
+	seg = getHelpSeg(seg);
+	$(".helpsegment").hide();
+	$("#help").show(200);
+	seg.show(200);
+	$("#sidebar_toggle").addClass("shown");
+}
+function closeHelp() {
+	$(".helpsegment").hide();
+	$("#help").hide(200);
+	$("#sidebar_toggle").removeClass("shown");
+}
+function preset() {
+	$('#blackout').fadeIn(300);
+	$('#presets').fadeIn(300);
+}
+function blackoutHide() {
+	$('#blackout').fadeOut(300);
+	$('#presets').fadeOut(300);
+}
+function presetLoc() {
+	var Loc = $("#presetLoc").val();
+	var ListItems = $("datalist#" + Loc + "Presets option");
+	var i = 0;
+	var presets = [];
+
+	while (i < ListItems.length) {
+		presets.push(ListItems.eq(i).val());
+		i++;
+	}
+	$("#presetInput").val(presets.join("\n"));
+}
+function presetSave(close) {
+	var Loc = $("#presetLoc").val();
+	var List = $("datalist#" + Loc + "Presets");
+	var presets = $("#presetInput").val().split("\n");
+	List.html("");
+	presets.forEach(function(item){
+   		List.append("<option value=\"" + item + "\">");
+	});
+}
+function clgNames(team, objective, tag, name) {
+	if (typeof team == 'object') {
+		team.forEach(function(s) {
+			if ($('#TeamPresets option').filter(function() { return $(this).val()===s }).length == 0) {
+				$('#TeamPresets').append('<option value="'+s+'"></option>')
+			}
+		})
+	}
+	if (typeof objective == 'object') {
+		objective.forEach(function(s) {
+			if ($('#ObjectivePresets option').filter(function() { return $(this).val()===s }).length == 0) {
+				$('#ObjectivePresets').append('<option value="'+s+'"></option>')
+			}
+		})
+	}
+	if (typeof tag == 'object') {
+		tag.forEach(function(s) {
+			if ($('#TagPresets option').filter(function() { return $(this).val()===s }).length == 0) {
+				$('#TagPresets').append('<option value="'+s+'"></option>')
+			}
+		})
+	}
+	if (typeof name == 'object') {
+		name.forEach(function(s) {
+			if ($('#NamePresets option').filter(function() { return $(this).val()===s }).length == 0) {
+				$('#NamePresets').append('<option value="'+s+'"></option>')
+			}
+		})
+	}
+}
+
+	</script>
+	</head><body><datalist id="111_entities">
+		<option value="item">
+		</option><option value="xp_orb">
+		</option><option value="area_effect_cloud">
+		</option><option value="elder_guardian">
+		</option><option value="wither_skeleton">
+		</option><option value="stray">
+		</option><option value="egg">
+		</option><option value="leash_knot">
+		</option><option value="painting">
+		</option><option value="arrow">
+		</option><option value="snowball">
+		</option><option value="fireball">
+		</option><option value="small_fireball">
+		</option><option value="ender_pearl">
+		</option><option value="eye_of_ender_signal">
+		</option><option value="potion">
+		</option><option value="xp_bottle">
+		</option><option value="item_frame">
+		</option><option value="wither_skull">
+		</option><option value="tnt">
+		</option><option value="falling_block">
+		</option><option value="fireworks_rocket">
+		</option><option value="husk">
+		</option><option value="spectral_arrow">
+		</option><option value="shulker_bullet">
+		</option><option value="dragon_fireball">
+		</option><option value="zombie_villager">
+		</option><option value="skeleton_horse">
+		</option><option value="zombie_horse">
+		</option><option value="armor_stand">
+		</option><option value="donkey">
+		</option><option value="mule">
+		</option><option value="commandblock_minecart">
+		</option><option value="boat">
+		</option><option value="minecart">
+		</option><option value="chest_minecart">
+		</option><option value="furnace_minecart">
+		</option><option value="tnt_minecart">
+		</option><option value="hopper_minecart">
+		</option><option value="spawner_minecart">
+		</option><option value="creeper">
+		</option><option value="skeleton">
+		</option><option value="spider">
+		</option><option value="giant">
+		</option><option value="zombie">
+		</option><option value="slime">
+		</option><option value="ghast">
+		</option><option value="zombie_pigman">
+		</option><option value="enderman">
+		</option><option value="cave_spider">
+		</option><option value="silverfish">
+		</option><option value="blaze">
+		</option><option value="magma_cube">
+		</option><option value="ender_dragon">
+		</option><option value="wither">
+		</option><option value="bat">
+		</option><option value="witch">
+		</option><option value="endermite">
+		</option><option value="guardian">
+		</option><option value="shulker">
+		</option><option value="pig">
+		</option><option value="sheep">
+		</option><option value="cow">
+		</option><option value="chicken">
+		</option><option value="squid">
+		</option><option value="wolf">
+		</option><option value="mooshroom">
+		</option><option value="snowman">
+		</option><option value="ocelot">
+		</option><option value="villager_golem">
+		</option><option value="horse">
+		</option><option value="rabbit">
+		</option><option value="polar_bear">
+		</option><option value="villager">
+		</option><option value="player">
+		</option><option value="ender_crystal">
+	</option></datalist>
+	<datalist id="110_entities">
+		<option value="ArmorStand">
+		</option><option value="AreaEffectCloud">
+		</option><option value="Item">
+		</option><option value="XPOrb">
+		</option><option value="Painting">
+		</option><option value="Arrow">
+		</option><option value="Snowball">
+		</option><option value="ThrownEnderpearl">
+		</option><option value="EyeOfEnderSignal">
+		</option><option value="ThrownPotion">
+		</option><option value="ThrownExpBottle">
+		</option><option value="ItemFrame">
+		</option><option value="WitherSkull">
+		</option><option value="PrimedTnt">
+		</option><option value="FallingSand">
+		</option><option value="EnderCrystal">
+		</option><option value="Boat">
+		</option><option value="MinecartRideable">
+		</option><option value="Creeper">
+		</option><option value="Skeleton">
+		</option><option value="Spider">
+		</option><option value="Zombie">
+		</option><option value="Slime">
+		</option><option value="Ghast">
+		</option><option value="PigZombie">
+		</option><option value="Enderman">
+		</option><option value="CaveSpider">
+		</option><option value="Silverfish">
+		</option><option value="Blaze">
+		</option><option value="LavaSlime">
+		</option><option value="EnderDragon">
+		</option><option value="WitherBoss">
+		</option><option value="Bat">
+		</option><option value="Witch">
+		</option><option value="Endermite">
+		</option><option value="Guardian">
+		</option><option value="Shulker">
+		</option><option value="Pig">
+		</option><option value="Sheep">
+		</option><option value="Cow">
+		</option><option value="Chicken">
+		</option><option value="Squid">
+		</option><option value="Wolf">
+		</option><option value="MushroomCow">
+		</option><option value="SnowMan">
+		</option><option value="Ozelot">
+		</option><option value="VillagerGolem">
+		</option><option value="EntityHorse">
+		</option><option value="Rabbit">
+		</option><option value="PolarBear">
+		</option><option value="Villager">
+		</option><option value="Player">
+	</option></datalist>
+	<datalist id="NamePresets">
+	</datalist>
+	<datalist id="TeamPresets">
+	</datalist>
+	<datalist id="TagPresets">
+	</datalist>
+	<datalist id="ObjectivePresets">
+	</datalist>
+
+
+	<div id="menu" class="bar">
+		<button type="button" id="General" onclick="toggleSeg(&#39;General&#39;)">General</button>
+		<button type="button" id="Coords" onclick="toggleSeg(&#39;Coords&#39;)">Coords</button>
+		<button type="button" class="toggleOff" id="Level" onclick="toggleSeg(&#39;Level&#39;);modeToggleX(true)">Mode / Level</button>
+		<button type="button" class="toggleOff" id="Rotation" onclick="toggleSeg(&#39;Rotation&#39;)">Rotation</button>
+		<button type="button" class="toggleOff" id="Score"><div id="scoreMenuButton" inline;"="" onclick="addScoreMod()">Score</div>
+			<div id="scoreClose" onclick="toggleSeg(&#39;Score&#39;)">X</div></button>
+		<div id="credit">Hosted by&nbsp;
+			<a href="https://server.zofenia.de/">Zofenia.de</a>
+			<div id="sidebar_toggle" onclick="toggleSide()">
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+	</div>
+	<div id="noJS" class="bar" style="display: none;">Please enable Javascript!</div>
+
+	
+	<div id="frame">
+		<h2 class="segment">Selector Generator by JannisX11</h2>
+		<div id="selector-type" class="segment spaceEqual">
+			<div><input type="radio" name="selector-type" checked="checked" id="radioA" onclick="radioCheck(1)">
+			<label for="radioA">Players</label></div>
+			<div><input type="radio" name="selector-type" id="radioE" onclick="radioCheck(2)">
+			<label for="radioE">Entities</label></div>
+			<div><input type="radio" name="selector-type" id="radioP" onclick="radioCheck(3)">
+			<label for="radioP">Nearest</label></div>
+			<div><input type="radio" name="selector-type" id="radioS" onclick="radioCheck(4)">
+			<label for="radioS">Self</label></div>
+			<div><input type="radio" name="selector-type" id="radioR" onclick="radioCheck(5)">
+			<label for="radioR">Random</label></div>
+		</div>
+
+
+<!--General-->
+		<form class="segment" spellcheck="false" id="GeneralSeg">
+			<div class="columns">
+				<p>Type<br></p>
+				<input type="text" id="Type" ,="" list="111_entities" class="entityOnly" disabled="">
+				<p>Tag<br></p>
+				<input type="text" id="Tag" list="TagPresets">
+				<p>Name<br></p>
+				<input type="text" id="Name" list="NamePresets">
+				<p>Team<br></p>
+				<input type="text" id="Team" list="TeamPresets">
+			</div>
+			<div class="panel">
+				<button type="button" class="side_button" data-tooltip="Close Segment" onclick="toggleSeg(&#39;General&#39;)">
+					X
+				</button>
+				<button type="button" class="side_button" data-tooltip="Reset Segment" onclick="this.form.reset()">
+					0
+				</button>
+				<button type="button" class="side_button" data-tooltip="Help with Segment" onclick="showHelp(&#39;General&#39;)">
+					?
+				</button>
+			</div>
+		</form>
+
+
+<!--Coords-->
+		<form class="segment" id="CoordsSeg" spellcheck="false">
+			<div class="columns">
+				<p>Corner 1<br></p>
+				<input type="text" id="Corner1">
+				<p>Radius<br></p>
+				<input type="text" id="Radius">
+				<p>Corner 2<br></p>
+				<input type="text" id="Corner2">
+				<p>Count:    
+				<output name="countOutputName" id="countOutput">All</output>&nbsp;<output id="countNegOutput"></output><br></p>
+				<div class="input-frame">
+					<input type="range" value="0" min="0" max="10" id="countInput" class="smaller" oninput="updateCount();"><button type="button" id="modeToggle" class="form-button" onclick="countToggleX(false)">Far</button>
+				</div>
+			</div>
+			<div class="panel">
+				<button type="button" class="side_button" data-tooltip="Close Segment" onclick="toggleSeg(&#39;Coords&#39;)">
+					X
+				</button>
+				<button type="button" class="side_button" data-tooltip="Reset Segment" onclick="this.form.reset(); updateCount(); countToggleX(true);">
+					0
+				</button>
+				<button type="button" class="side_button" data-tooltip="Help with Segment" onclick="showHelp(&#39;Coords&#39;)">
+					?
+				</button>
+			</div>
+		</form>
+
+
+<!--Level / Mode-->
+		<form class="segment HiddenSeg" id="LevelSeg" spellcheck="false">
+			<div class="columns">
+				<p>Gamemode:
+				<output id="modeNegOutput"></output><output id="modeOutput">All</output><br></p>
+				<div class="input-frame">
+					<input type="range" value="-1" min="-1" max="3" class="smaller" id="modeInput" oninput="updateMode();"><button type="button" id="modeToggle" class="form-button" onclick="modeToggleX(false)">!</button>
+				</div>
+				<p>Level<br></p>
+				<input type="text" id="XP">
+			</div>
+			<div class="panel">
+				<button type="button" class="side_button" data-tooltip="Close Segment" onclick="toggleSeg(&#39;Level&#39;)">
+					X
+				</button>
+				<button type="button" class="side_button" data-tooltip="Reset Segment" onclick="this.form.reset(); updateMode(); modeToggleX(true)">
+					0
+				</button>
+				<button type="button" class="side_button" data-tooltip="Help with Segment" onclick="showHelp(&#39;Level&#39;)">
+					?
+				</button>
+			</div>
+		</form>
+
+
+<!--Rotation-->
+		<form class="segment HiddenSeg" id="RotationSeg" spellcheck="false">
+			<div class="columns">
+				<div id="rotY" class="rotHalf">
+					<div class="circle">
+						<div class="rotLabel" style="">N</div>
+						<div class="rotMiddle spaceEqual">
+							<div class="rotLabel">W</div>
+							<output id="wheelY">1</output>
+							<div class="rotLabel">E</div>
+						</div>
+						<div class="rotLabel" style="margin-top: 10;">S</div>
+					</div>
+					<div class="circle-overlay" id="ry">
+						<div class="rotMark">
+							<div class="rotMark rotMarkVert left"></div></div>
+					</div>
+					<div class="circle-overlay" id="rym">
+						<div class="rotMark">
+							<div class="rotMark rotMarkVert"></div></div>
+					</div>
+					<p>Max<br></p>
+					<input type="range" value="-181" min="-181" max="180" id="ryS" oninput="rotateY($(&#39;#ry&#39;), $(&#39;#ryS&#39;).val())">
+					<button type="button" class="form-button" style="float: left;" onclick="rotateYStep($(&#39;#ryS&#39;), false); rotateY($(&#39;#ry&#39;), $(&#39;#ryS&#39;).val());">-</button>
+					<button type="button" class="form-button" onclick="rotateYStep($(&#39;#ryS&#39;), true); rotateY($(&#39;#ry&#39;), $(&#39;#ryS&#39;).val());">+</button>
+					<p>Min<br></p>
+					<input type="range" value="-181" min="-181" max="180" id="rymS" oninput="rotateY($(&#39;#rym&#39;), $(&#39;#rymS&#39;).val())">
+					<button type="button" class="form-button" style="float: left;" onclick="rotateYStep($(&#39;#rymS&#39;), false); rotateY($(&#39;#rym&#39;), $(&#39;#rymS&#39;).val());">-</button>
+					<button type="button" class="form-button" onclick="rotateYStep($(&#39;#rymS&#39;), true); rotateY($(&#39;#rym&#39;), $(&#39;#rymS&#39;).val());">+</button>
+				</div>
+
+
+
+				<div id="rotX" class="rotHalf">
+					<div class="circle">
+						<div class="rotLabel"></div>
+						<div class="rotMiddle">
+							<output id="wheelX" align="center">1</output>
+						</div>
+					</div>
+					<div class="circle-overlay" id="rx">
+						<div class="rotMark">
+							<div class="rotMark rotMarkVert"></div></div>
+					</div>
+					<div class="circle-overlay" id="rxm">
+						<div class="rotMark">
+							<div class="rotMark rotMarkVert left"></div></div>
+					</div>
+					<p>Max<br></p>
+					<input type="range" value="-91" min="-91" max="90" id="rxS" oninput="rotateX($(&#39;#rx&#39;), $(&#39;#rxS&#39;).val())">
+					<button type="button" class="form-button" style="float: left;" onclick="rotateXStep($(&#39;#rxS&#39;), false); rotateX($(&#39;#rx&#39;), $(&#39;#rxS&#39;).val());">-</button>
+					<button type="button" class="form-button" onclick="rotateXStep($(&#39;#rxS&#39;), true); rotateX($(&#39;#rx&#39;), $(&#39;#rxS&#39;).val());">+</button>
+					<p>Min<br></p>
+					<input type="range" value="-91" min="-91" max="90" id="rxmS" oninput="rotateX($(&#39;#rxm&#39;), $(&#39;#rxmS&#39;).val())">
+					<button type="button" class="form-button" style="float: left;" onclick="rotateXStep($(&#39;#rxmS&#39;), false); rotateX($(&#39;#rxm&#39;), $(&#39;#rxmS&#39;).val());">-</button>
+					<button type="button" class="form-button" onclick="rotateXStep($(&#39;#rxmS&#39;), true); rotateX($(&#39;#rxm&#39;), $(&#39;#rxmS&#39;).val());">+</button>
+				</div>
+			</div>
+			<div class="panel">
+				<button type="button" class="side_button" data-tooltip="Close Segment" onclick="toggleSeg(&#39;Rotation&#39;)">
+					X
+				</button>
+				<button type="button" class="side_button" data-tooltip="Reset Segment" onclick="this.form.reset(); rotReset();">
+					0
+				</button>
+				<button type="button" class="side_button" data-tooltip="Help with Segment" onclick="showHelp(&#39;Rotation&#39;)">
+					?
+				</button>
+			</div>			
+		</form>
+
+
+<!--Score-->
+		<form class="segment HiddenSeg" id="ScoreSeg" spellcheck="false">
+			<div id="ScoreContainer"></div>
+			<div class="panel">
+				<button type="button" class="side_button" data-tooltip="Close Segment" onclick="toggleSeg(&#39;Score&#39;)">
+					X
+				</button>
+				<button type="button" class="side_button" data-tooltip="Reset Segment" onclick="this.form.reset()">
+					0
+				</button>
+				<button type="button" class="side_button" data-tooltip="Help with Segment" onclick="showHelp(&#39;Score&#39;)">
+					?
+				</button>
+			</div>
+			<button type="button" style="margin-bottom: 6;" onclick="addScoreMod()">Add</button>
+		</form>
+
+
+
+
+<!--Controls-->		
+		<div class="segment segment-blank spaceEqual">
+			<button type="button" onclick="copyX()">Copy</button>
+			<button type="reset" onclick="clearX()">Clear</button>
+			<button type="button" id="generate" onclick="generateX(true)">Generate</button>
+		</div>
+		<div class="segment segment-blank">
+			<textarea id="Output" rows="4" spellcheck="false"></textarea>
+			<output name="log" id="logOutput"></output>
+			<label for="changeVersion" id="version">
+				1.10
+				<div id="checkBoxBack"></div>
+				<input type="checkBox" name="version" id="changeVersion" onclick="changeVersion()">
+			</label>
+		</div>
+		<div id="clearer"></div>
+	</div>
+
+	<div id="help">
+		<div class="helpsegment" id="OverallHelp">
+			<h3>Welcome!</h3>
+			<p>This generator enables you to generate entity selectors easily.</p>
+			<p>Click on the buttons in the menu bar to choose the panels you need.</p>
+			<p>Use the buttons on the right-hand-side of the panels to Close or Reset this section</p>
+		</div>
+		<div class="helpsegment" id="GeneralHelp">
+			<h3>General Help</h3>
+			<p>Here you can define simple things such as Name or Type. The types are validated depending on your configured minecraft version.
+		</p></div>
+		<div class="helpsegment" id="CoordsHelp">
+			<h3>Coordinates</h3>
+			<p>In this panel you can select coordinates, radius and count.</p>
+			<p>To specify the area, choose two opposite corners and enter their coordinates.</p>
+			<p>Tipp: You can auto-complete coordinates in the setblock command by pressint TAB</p>
+			<p>You can define the minimum or maximum radius. Just type the two numbers, seperated by a space, into the box. Use an asterisk (*) ad a placeholder to mark as undefined.</p>
+			<p>Select the maximum number of entities selected. Click "Far" to select the farthest away entities first.</p>
+			<p>If you want to select more that 10 entities, generate the command and edit the number manually</p>
+		</div>
+		<div class="helpsegment" id="LevelHelp">
+			<h3>Mode / Level</h3>
+			<p>Here you can specify the gamemode or the XP level. Both only work on players.</p>
+			<p>Use the slider to select the gamemode and the "!" button to select all players who are NOT in this mode.
+			</p><p>You can define the minimum or maxi-mum level. Just enter the two numbers, seperated by a space, into the box. Use an asterisk (*) ad a placeholder to mark as undefined.</p>
+		</div>
+		<div class="helpsegment" id="RotationHelp">
+			<h3>Rotation</h3>
+			<p>In this panel you can specify the direction in which the player is looking</p>
+			<p>Use the sliders to edit the looking range shown in the circles. First circle stands for compass direction, second stands for up/down.</p>
+			<p>Use the buttons to fine-tune your settings.</p>
+			<p>Setting the slider to the far right will leave that direction undefined.</p>
+		</div>
+		<div class="helpsegment" id="ScoreHelp">
+			<h3>Scores</h3>
+			<p>Here you can define up to 16 scores.</p>
+			<p>Use the left input to enter the scoreboard objective name, use the right box to set the number.</p>
+			<p>One number will count as the minimum. Use two numbers, seperated by a space to define minimum and maximum.  Use an asterisk (*) ad a placeholder to mark as infinite.</p>
+		</div>
+		<div class="spaceEqual" style="display: block;">
+			<button type="button" onclick="preset()">
+				Presets
+			</button>
+			<button type="button" onclick="closeHelp()" style="margin-right: 0;">
+				Close
+			</button>
+		</div>
+	</div>
+
+	<div id="blackout" onclick="blackoutHide()">
+		
+	</div>
+
+	<div id="presets">
+		<h2>Preset Editor</h2>
+		<textarea id="presetInput" rows="11" spellcheck="false" onchange="presetSave(false)"></textarea>
+		<select name="presetLoc" id="presetLoc" onchange="presetLoc()">
+			<option>Name</option>
+			<option>Team</option>
+			<option>Tag</option>
+			<option>Objective</option>
+		</select>
+		<button type="button" onclick="blackoutHide()" style="float: right;">Save</button>
+	</div>
+
+</body></html>
